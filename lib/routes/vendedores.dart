@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/bar_icon.dart';
 import 'package:ubaia/components/rating_stars.dart';
+import 'package:ubaia/routes/perfil_vendedor.dart';
 
 class Vendedores extends StatefulWidget {
   Vendedores({Key key, this.title}) : super(key: key);
@@ -32,7 +33,14 @@ class _VendedoresState extends State<Vendedores> {
       ),
       title: Text(widget.vendedores[index], style: TextStyle(fontSize: 18.0),),
       subtitle: Text("Próxima entrega: ${widget.entrega[index]}"),
-      trailing: RatingStars(rate: widget.nota[index])
+      trailing: RatingStars(rate: widget.nota[index]),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PerfilVendedor(
+            title: "Perfil", vendedor: widget.vendedores[index], nota: widget.nota[index],))
+        );
+      },
     );
   }
 
