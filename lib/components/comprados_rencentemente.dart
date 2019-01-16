@@ -34,6 +34,7 @@ class _CompradosRecentementeState extends State<CompradosRecentemente> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Titulo(title: "Comprados Recentemente",),
         SizedBox(

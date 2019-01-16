@@ -5,6 +5,7 @@ class Categorias extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -13,7 +14,7 @@ class Categorias extends StatelessWidget {
         GridView.count(
           shrinkWrap: true,
           crossAxisCount: 2,
-          scrollDirection: Axis.vertical,
+          physics: ClampingScrollPhysics(),
           children: List.generate(8, (index) {
             return Center(
               child: Container(
