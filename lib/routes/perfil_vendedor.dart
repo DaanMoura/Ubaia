@@ -42,6 +42,47 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
     );
   }
 
+  Widget _buildImage(String url, int index) {
+    return Padding(
+      padding: EdgeInsets.all(8),
+      child: InkWell(
+        onTap: () => _abreImagem(context, url, index),
+        child: Hero(
+          child: Image.network(url, height: 100, width: 100, ),
+          tag: 'image-hero-$index'
+        ),
+      ),
+    );
+  }
+
+  void _abreImagem(BuildContext context, String url, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Scaffold(
+          body: Center(
+            child: GestureDetector(
+              onVerticalDragEnd: (DragEndDetails) {
+                Navigator.pop(context);
+              },
+              child: Hero(
+                tag: 'image-hero-$index',
+                child: Image.network(url,),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  List<String> imageList = [
+    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.scienceabc.com%2Fwp-content%2Fuploads%2F2015%2F09%2FBananas1.jpg&f=1",
+    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",
+    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.RSvLuPD2FVwQdxNluQiJxgHaHg%26pid%3D15.1&f=1",
+    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.5rTTaPLBBvSyrLk9iPrUUQHaIo%26pid%3D15.1&f=1",
+    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7ZawEqQ5Uw757l2Mv586iwHaHC%26pid%3D15.1&f=1"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,16 +111,15 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
             Center(child: RatingStars(rate: widget.nota,)),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Image.network("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.scienceabc.com%2Fwp-content%2Fuploads%2F2015%2F09%2FBananas1.jpg&f=1",
-                  height: 100, width: 100,),
-                  Image.network("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.scienceabc.com%2Fwp-content%2Fuploads%2F2015%2F09%2FBananas1.jpg&f=1",
-                    height: 100, width: 100,),
-                  Image.network("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.scienceabc.com%2Fwp-content%2Fuploads%2F2015%2F09%2FBananas1.jpg&f=1",
-                    height: 100, width: 100,),
-                ],
+              child: SizedBox(
+                height: 140,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (BuildContext content, int index) {
+                    return _buildImage(imageList[index], index);
+                  },
+                ),
               ),
             ),
             Padding(
