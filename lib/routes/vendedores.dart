@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/rating_stars.dart';
 import 'package:ubaia/routes/perfil_vendedor.dart';
+import 'package:ubaia/routes/perfil_usuario.dart';
 
 class Vendedores extends StatefulWidget {
   Vendedores({Key key, this.title}) : super(key: key);
@@ -24,6 +25,14 @@ class Vendedores extends StatefulWidget {
 }
 
 class _VendedoresState extends State<Vendedores> {
+
+  void _abrePerfil() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PerfilUsuario())
+    );
+  }
+
 
   Widget _buildRow(int index) {
     return ListTile(
@@ -52,7 +61,7 @@ class _VendedoresState extends State<Vendedores> {
           IconButton(
             icon: Icon(Icons.person),
             color: Colors.white,
-            onPressed: () {},
+            onPressed: () {_abrePerfil();},
           ),
         ],
       ),

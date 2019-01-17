@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ubaia/components/rating_stars.dart';
 import 'package:ubaia/components/titulo.dart';
 import 'package:ubaia/routes/produto.dart';
+import 'package:ubaia/routes/perfil_usuario.dart';
 
 class PerfilVendedor extends StatefulWidget {
 
@@ -18,6 +19,13 @@ class PerfilVendedor extends StatefulWidget {
 }
 
 class _PerfilVendedorState extends State<PerfilVendedor> {
+
+  void _abrePerfil() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PerfilUsuario())
+    );
+  }
 
   Widget _buildList(int index) {
     final itemTitle = "Produto $index";
@@ -43,7 +51,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
             IconButton(
               icon: Icon(Icons.person),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {_abrePerfil();},
             ),
           ],
         ),
