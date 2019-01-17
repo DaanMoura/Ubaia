@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/rating_stars.dart';
-import 'package:ubaia/components/bar_icon.dart';
 import 'package:ubaia/components/titulo.dart';
+import 'package:ubaia/routes/produto.dart';
 
 class PerfilVendedor extends StatefulWidget {
 
@@ -20,9 +20,17 @@ class PerfilVendedor extends StatefulWidget {
 class _PerfilVendedorState extends State<PerfilVendedor> {
 
   Widget _buildList(int index) {
+    final itemTitle = "Produto $index";
+
     return ListTile (
       leading: CircleAvatar(), // TODO: adicionar imagem
-      title: Text("Item $index"),
+      title: Text(itemTitle),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PaginaProduto(title: "Ubaia", itemTitle: itemTitle,))
+        );
+      },
     );
   }
 
@@ -32,7 +40,11 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
         appBar: AppBar(
           title: Text(widget.title),
           actions: <Widget>[
-            BarIcon(icon: Icons.person,)
+            IconButton(
+              icon: Icon(Icons.person),
+              color: Colors.white,
+              onPressed: () {},
+            ),
           ],
         ),
         body: ListView(
@@ -64,7 +76,8 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              child: Text("Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema ",),
+              child: Text("Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema ",
+              textAlign: TextAlign.justify,),
             ),
             Container(
               height: 30,

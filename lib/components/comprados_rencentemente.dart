@@ -12,7 +12,7 @@ class _CompradosRecentementeState extends State<CompradosRecentemente> {
       children: <Widget>[
         Padding(
           padding: EdgeInsets.all(8),
-          child: Image.network(url, height: 100, width: 100,),
+          child: Image.network(url, height: 100, width: 100, ),
         ),
         Text(nome)
       ],

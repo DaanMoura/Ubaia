@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ubaia/components/comprados_rencentemente.dart';
 import 'package:ubaia/components/categorias.dart';
 import 'package:ubaia/components/bottom_button.dart';
-import 'package:ubaia/components/bar_icon.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -20,7 +19,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          BarIcon(icon: Icons.person,)
+          IconButton(
+            icon: Icon(Icons.person),
+            color: Colors.white,
+            onPressed: () {},
+          ),
         ],
       ),
       body: ListView(

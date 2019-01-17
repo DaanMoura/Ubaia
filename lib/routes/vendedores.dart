@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ubaia/components/bar_icon.dart';
 import 'package:ubaia/components/rating_stars.dart';
 import 'package:ubaia/routes/perfil_vendedor.dart';
 
@@ -50,7 +49,11 @@ class _VendedoresState extends State<Vendedores> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          BarIcon(icon: Icons.person,)
+          IconButton(
+            icon: Icon(Icons.person),
+            color: Colors.white,
+            onPressed: () {},
+          ),
         ],
       ),
       body: ListView.builder(
