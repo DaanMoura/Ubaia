@@ -61,6 +61,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => Scaffold(
+        backgroundColor: Colors.black,
           body: Center(
             child: GestureDetector(
               onVerticalDragEnd: (DragEndDetails) {

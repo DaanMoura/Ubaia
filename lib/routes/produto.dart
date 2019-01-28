@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/titulo.dart';
+import 'package:ubaia/routes/cesta.dart';
 import 'package:ubaia/values/strings.dart';
 final str = Strings();
 
@@ -114,7 +115,12 @@ class _PaginaProdutoState extends State<PaginaProduto> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Cesta()),
+                  );
+                },
                 color: Colors.brown,
                 child: Text(str.adicionar_cesta.toUpperCase(), style: TextStyle(color: Colors.white70),),
               ),

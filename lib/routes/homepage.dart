@@ -3,6 +3,7 @@ import 'package:ubaia/components/comprados_rencentemente.dart';
 import 'package:ubaia/components/categorias.dart';
 import 'package:ubaia/components/bottom_button.dart';
 import 'package:ubaia/routes/perfil_usuario.dart';
+import 'package:ubaia/routes/cesta.dart';
 import 'package:ubaia/values/strings.dart';
 final str = Strings();
 
@@ -46,6 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       bottomSheet: BottomButton(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => Cesta()),
+          );
+        },
         child: Text(
           "Minha Cesta",
           style: TextStyle(color: Colors.white),
