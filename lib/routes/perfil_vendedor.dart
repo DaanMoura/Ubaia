@@ -3,6 +3,8 @@ import 'package:ubaia/components/rating_stars.dart';
 import 'package:ubaia/components/titulo.dart';
 import 'package:ubaia/routes/produto.dart';
 import 'package:ubaia/routes/perfil_usuario.dart';
+import 'package:ubaia/values/strings.dart';
+final str = Strings();
 
 class PerfilVendedor extends StatefulWidget {
 
@@ -36,7 +38,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PaginaProduto(title: "Ubaia", itemTitle: itemTitle,))
+          MaterialPageRoute(builder: (context) => PaginaProduto(title: str.app_title, itemTitle: itemTitle,))
         );
       },
     );
@@ -124,7 +126,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              child: Text("Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema ",
+              child: Text(str.descricao_padrao,
               textAlign: TextAlign.justify,),
             ),
             Container(
@@ -132,7 +134,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
               color: Colors.green[200],
               child: Padding(
                 padding: const EdgeInsets.only(top: 6, left: 32),
-                child: Text("Categoria", style: TextStyle(fontSize: 16, color: Colors.green[900]),),
+                child: Text(str.categoria, style: TextStyle(fontSize: 16, color: Colors.green[900]),),
               ),
             ),
             Padding(
@@ -150,7 +152,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
               color: Colors.green[200],
               child: Padding(
                 padding: const EdgeInsets.only(top: 6, left: 32),
-                child: Text("Demais Produtos", style: TextStyle(fontSize: 16, color: Colors.green[900]),),
+                child: Text(str.demais_produtos, style: TextStyle(fontSize: 16, color: Colors.green[900]),),
               ),
             ),
             Padding(

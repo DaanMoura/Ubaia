@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/titulo.dart';
+import 'package:ubaia/values/strings.dart';
+final str = Strings();
 
 class CompradosRecentemente extends StatefulWidget {
   @override
@@ -36,7 +38,7 @@ class _CompradosRecentementeState extends State<CompradosRecentemente> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Titulo(title: "Comprados Recentemente",),
+        Titulo(title: str.comprados_recentemente,),
         SizedBox(
           height: 140,
           child: ListView.builder(

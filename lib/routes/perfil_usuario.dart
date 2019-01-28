@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/routes/cadastro_endereco.dart';
+import 'package:ubaia/values/strings.dart';
+final str = Strings();
 
 class PerfilUsuario extends StatelessWidget {
 
@@ -24,7 +26,7 @@ class PerfilUsuario extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Meu Perfil"),
+          title: Text(str.meu_perfil),
         ),
         body: ListView(
           padding: EdgeInsets.only(top: 32),
@@ -39,15 +41,15 @@ class PerfilUsuario extends StatelessWidget {
               ),
             ),
             _buildSection(
-              text: "Meus pedidos",
+              text: str.meus_pedidos,
               padding: EdgeInsets.only(top: 32, bottom: 8),
             ),
             _buildSection(
-              text: "Editar perfil",
+              text: str.editar_perfil,
               padding: EdgeInsets.all(8),
             ),
             _buildSection(
-              text: "Adicionar endereço",
+              text: str.add_endereco,
               padding: EdgeInsets.all(8),
               onTap: () {
                 Navigator.push(
@@ -57,11 +59,11 @@ class PerfilUsuario extends StatelessWidget {
               }
             ),
             _buildSection(
-              text: "Ajuda",
+              text: str.ajuda,
               padding: EdgeInsets.all(8),
             ),
             _buildSection(
-              text: "Sair",
+              text: str.sair,
               padding: EdgeInsets.all(8),
             ),
           ],

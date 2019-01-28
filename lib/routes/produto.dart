@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/titulo.dart';
+import 'package:ubaia/values/strings.dart';
+final str = Strings();
 
 class PaginaProduto extends StatefulWidget {
   PaginaProduto({Key key, this.title, this.itemTitle}) : super(key: key);
@@ -86,7 +88,7 @@ class _PaginaProdutoState extends State<PaginaProduto> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              child: Text("Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema ",
+              child: Text(str.adcionar_observacao,
               textAlign: TextAlign.justify,),
             ),
             Padding(
@@ -96,7 +98,7 @@ class _PaginaProdutoState extends State<PaginaProduto> {
                 cursorColor: Colors.brown,
                 style: TextStyle(fontSize: 18, color: Colors.black),
                 decoration: InputDecoration(
-                  labelText: "Adicionar observação",
+                  labelText: str.adcionar_observacao,
                   labelStyle: TextStyle(color: Colors.brown),
                   hintStyle: TextStyle(color: Colors.brown),
                   focusedBorder: OutlineInputBorder(
@@ -114,7 +116,7 @@ class _PaginaProdutoState extends State<PaginaProduto> {
               child: MaterialButton(
                 onPressed: () {},
                 color: Colors.brown,
-                child: Text("Adicionar à cesta".toUpperCase(), style: TextStyle(color: Colors.white70),),
+                child: Text(str.adicionar_cesta.toUpperCase(), style: TextStyle(color: Colors.white70),),
               ),
             )
           ],

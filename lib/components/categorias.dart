@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/titulo.dart';
 import 'package:ubaia/routes/vendedores.dart';
+import 'package:ubaia/values/strings.dart';
+final str = Strings();
 
 class Categorias extends StatelessWidget {
 
   void openVendedores(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Vendedores(title: "Vendedores",))
+      MaterialPageRoute(builder: (context) => Vendedores(title: str.vendedores,))
     );
   }
 
@@ -18,7 +20,7 @@ class Categorias extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Titulo(title: "Categorias"),
+          child: Titulo(title: str.categorias),
         ),
         GridView.count(
           padding: EdgeInsets.only(bottom: 20.0),
