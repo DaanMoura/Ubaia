@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/routes/perfil_usuario.dart';
+import 'package:ubaia/routes/detalhes_pedido.dart';
 import 'package:ubaia/values/strings.dart';
 import 'package:ubaia/components/bottom_button.dart';
 final str = Strings();
@@ -53,7 +54,7 @@ class Cesta extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 24, right: 24, left: 24),
-        child: ListView(
+        child: Column(
           children: <Widget>[
             ListView.builder(
                 shrinkWrap: true,
@@ -78,7 +79,10 @@ class Cesta extends StatelessWidget {
       ),
       bottomSheet: BottomButton(
         onTap: () {
-          print("Detalhes do Pedido");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => DetalhesPedido()),
+          );
         },
         child: Text(
           "Detalhes do Pedido",
