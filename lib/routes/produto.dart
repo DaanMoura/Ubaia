@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ubaia/components/titulo.dart';
 import 'package:ubaia/routes/cesta.dart';
 import 'package:ubaia/values/strings.dart';
+
 final str = Strings();
 
 class PaginaProduto extends StatefulWidget {
@@ -15,13 +16,11 @@ class PaginaProduto extends StatefulWidget {
 }
 
 class _PaginaProdutoState extends State<PaginaProduto> {
-
   var _quantidade = 500;
 
   void _diminuiQuantidade() {
     setState(() {
-      if(_quantidade >= 100)
-      _quantidade = _quantidade - 100;
+      if (_quantidade >= 100) _quantidade = _quantidade - 100;
     });
   }
 
@@ -42,10 +41,11 @@ class _PaginaProdutoState extends State<PaginaProduto> {
         body: ListView(
           children: <Widget>[
             SizedBox(
-              height: 200,
-              child: Image.network("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",
-              fit: BoxFit.cover,)
-            ),
+                height: 200,
+                child: Image.network(
+                  "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",
+                  fit: BoxFit.cover,
+                )),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -62,7 +62,10 @@ class _PaginaProdutoState extends State<PaginaProduto> {
                   width: 40,
                   child: FloatingActionButton(
                     heroTag: null,
-                    child: Icon(Icons.remove, size: 30,),
+                    child: Icon(
+                      Icons.remove,
+                      size: 30,
+                    ),
                     onPressed: _diminuiQuantidade,
                     foregroundColor: Colors.white70,
                     backgroundColor: Colors.brown,
@@ -70,15 +73,22 @@ class _PaginaProdutoState extends State<PaginaProduto> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                  child: Text("${_quantidade} g", style: TextStyle(fontSize: 30),),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 8.0, horizontal: 16.0),
+                  child: Text(
+                    "${_quantidade} g",
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ),
                 Container(
                   height: 40,
                   width: 40,
                   child: FloatingActionButton(
                     heroTag: null,
-                    child: Icon(Icons.add, size: 30,),
+                    child: Icon(
+                      Icons.add,
+                      size: 30,
+                    ),
                     onPressed: _aumentaQuantidade,
                     foregroundColor: Colors.white70,
                     backgroundColor: Colors.brown,
@@ -88,32 +98,12 @@ class _PaginaProdutoState extends State<PaginaProduto> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              child: Text(str.adcionar_observacao,
-              textAlign: TextAlign.justify,),
+              padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
+              child: Text("Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema "),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32),
-              child: TextField(
-                keyboardType: TextInputType.text,
-                cursorColor: Colors.brown,
-                style: TextStyle(fontSize: 18, color: Colors.black),
-                decoration: InputDecoration(
-                  labelText: str.adcionar_observacao,
-                  labelStyle: TextStyle(color: Colors.brown),
-                  hintStyle: TextStyle(color: Colors.brown),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.brown),
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.brown),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  )
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
               child: MaterialButton(
                 onPressed: () {
                   Navigator.push(
@@ -122,7 +112,10 @@ class _PaginaProdutoState extends State<PaginaProduto> {
                   );
                 },
                 color: Colors.brown,
-                child: Text(str.adicionar_cesta.toUpperCase(), style: TextStyle(color: Colors.white70),),
+                child: Text(
+                  str.adicionar_cesta.toUpperCase(),
+                  style: TextStyle(color: Colors.white70),
+                ),
               ),
             )
           ],

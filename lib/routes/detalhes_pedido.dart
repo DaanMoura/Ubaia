@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ubaia/routes/perfil_usuario.dart';
 import 'package:ubaia/routes/perfil_vendedor.dart';
 import 'package:ubaia/routes/homepage.dart';
+import 'package:ubaia/values/strings.dart';
+
+final str = Strings();
 
 class DetalhesPedido extends StatefulWidget {
-
   @override
   DetalhesPedidoState createState() {
     return new DetalhesPedidoState();
@@ -12,31 +14,38 @@ class DetalhesPedido extends StatefulWidget {
 }
 
 class DetalhesPedidoState extends State<DetalhesPedido> {
+  final route = MaterialPageRoute(
+      builder: (BuildContext context) => MyHomePage(
+            title: "Cestou",
+          ));
 
-  final route = MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: "Cestou",));
-
-  final _listaEnderecos = ["Rua São João, 27", "Rua Dom Pedro, 500", "Av São Carlos, 126"];
+  final _listaEnderecos = [
+    "Rua São João, 27",
+    "Rua Dom Pedro, 500",
+    "Av São Carlos, 126"
+  ];
   String _value = "";
 
   void _abrePerfil(BuildContext context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => PerfilUsuario())
-    );
+        context, MaterialPageRoute(builder: (context) => PerfilUsuario()));
   }
 
   List<DropdownMenuItem<String>> _makeDropdownList(List<String> list) {
     List<DropdownMenuItem<String>> dropdowlist = [];
 
-    for(var i = 0; i < list.length; i++) {
-      dropdowlist.add(DropdownMenuItem<String>(value: list[i], child: Text(list[i]),));
+    for (var i = 0; i < list.length; i++) {
+      dropdowlist.add(DropdownMenuItem<String>(
+        value: list[i],
+        child: Text(list[i]),
+      ));
     }
 
     return dropdowlist;
   }
 
   String _updateHint() {
-    if(_value.isEmpty) {
+    if (_value.isEmpty) {
       return "Casa";
     } else {
       return _value;
@@ -52,22 +61,26 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
           IconButton(
             icon: Icon(Icons.person),
             color: Colors.white,
-            onPressed: () {_abrePerfil(context);},
+            onPressed: () {
+              _abrePerfil(context);
+            },
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          physics: ClampingScrollPhysics(),
           children: <Widget>[
             Text("Endereço para entrega"),
-            DropdownButton<String> (
+            DropdownButton<String>(
               isExpanded: true,
               hint: Text(_updateHint()),
-              onChanged: (String selected) {setState(() {
-                _value = selected;
-              });},
+              onChanged: (String selected) {
+                setState(() {
+                  _value = selected;
+                });
+              },
               items: _makeDropdownList(_listaEnderecos),
             ),
             Padding(
@@ -110,26 +123,53 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: TextField(
+                keyboardType: TextInputType.multiline,
+                cursorColor: Colors.black,
+                style: TextStyle(fontSize: 18, color: Colors.black),
+                decoration: InputDecoration(
+                  labelText: str.adcionar_observacao,
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.black),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                ),
+              ),
+            ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 80),
                 child: Column(
                   children: <Widget>[
                     MaterialButton(
+                      minWidth: 250,
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => PerfilVendedor(
-                            title: "Cestou",
-                            vendedor: "Fulano",
-                            nota: 4,
-                          )),
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => PerfilVendedor(
+                                  title: "Cestou",
+                                  vendedor: "Fulano",
+                                  nota: 4,
+                                ),
+                          ),
                         );
                       },
                       color: Colors.brown,
-                      child: Text("Adicionar mais itens".toUpperCase(), style: TextStyle(color: Colors.white70),),
+                      child: Text(
+                        "Adicionar mais itens".toUpperCase(),
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     ),
                     MaterialButton(
+                      minWidth: 250,
                       onPressed: () {
                         Navigator.pushAndRemoveUntil(
                           context,
@@ -138,7 +178,10 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
                         );
                       },
                       color: Colors.green,
-                      child: Text("Finalizar".toUpperCase(), style: TextStyle(color: Colors.white70),),
+                      child: Text(
+                        "Finalizar".toUpperCase(),
+                        style: TextStyle(color: Colors.white70),
+                      ),
                     ),
                   ],
                 ),
