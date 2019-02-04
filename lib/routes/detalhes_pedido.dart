@@ -13,6 +13,8 @@ class DetalhesPedido extends StatefulWidget {
 
 class DetalhesPedidoState extends State<DetalhesPedido> {
 
+  final route = MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: "Cestou",));
+
   final _listaEnderecos = ["Rua São João, 27", "Rua Dom Pedro, 500", "Av São Carlos, 126"];
   String _value = "";
 
@@ -118,7 +120,7 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (BuildContext context) => PerfilVendedor(
-                            title: "Ubaia",
+                            title: "Cestou",
                             vendedor: "Fulano",
                             nota: 4,
                           )),
@@ -129,9 +131,10 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
                     ),
                     MaterialButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: "Cestou",)),
+                          route,
+                          (route) => false,
                         );
                       },
                       color: Colors.green,
