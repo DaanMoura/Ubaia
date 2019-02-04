@@ -1,5 +1,5 @@
 class Strings {
-  final String app_title = "Ubaia";
+  final String app_title = "Cestou";
   final String descricao_padrao = "Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema ";
   final String categoria = "Categoria";
   final String demais_produtos = "Demais Produtos";
