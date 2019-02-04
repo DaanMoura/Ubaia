@@ -129,9 +129,9 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
                     ),
                     MaterialButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: "Ubaia",)),
+                          MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: "Cestou",)),
                         );
                       },
                       color: Colors.green,
