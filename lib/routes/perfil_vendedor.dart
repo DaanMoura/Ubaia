@@ -41,7 +41,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PaginaProduto(title: str.app_title, itemTitle: itemTitle,))
+          MaterialPageRoute(builder: (context) => PaginaProduto(title: str.app_title, itemTitle: itemTitle, image: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",))
         );
       },
     );

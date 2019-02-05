@@ -16,7 +16,7 @@ class _CompradosRecentementeState extends State<CompradosRecentemente> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PaginaProduto(title: "Cestou", itemTitle: nome,))
+          MaterialPageRoute(builder: (context) => PaginaProduto(title: "Cestou", itemTitle: nome, image: url))
         );
       },
       child: Column(

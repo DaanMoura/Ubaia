@@ -6,10 +6,11 @@ import 'package:ubaia/values/strings.dart';
 final str = Strings();
 
 class PaginaProduto extends StatefulWidget {
-  PaginaProduto({Key key, this.title, this.itemTitle}) : super(key: key);
+  PaginaProduto({Key key, this.title, this.itemTitle, this.image}) : super(key: key);
 
   final String title;
   final String itemTitle;
+  final String image;
   
 
   @override
@@ -44,7 +45,7 @@ class _PaginaProdutoState extends State<PaginaProduto> {
           SizedBox(
               height: 200,
               child: Image.network(
-                "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",
+                widget.image,
                 fit: BoxFit.cover,
               )),
           Center(

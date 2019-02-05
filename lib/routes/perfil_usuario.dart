@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/routes/cadastro_endereco.dart';
+import 'package:ubaia/routes/meus_pedidos.dart';
 import 'package:ubaia/values/strings.dart';
 final str = Strings();
 
@@ -43,6 +44,12 @@ class PerfilUsuario extends StatelessWidget {
             _buildSection(
               text: str.meus_pedidos,
               padding: EdgeInsets.only(top: 32, bottom: 8),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MeusPedidos())
+                );
+              }
             ),
             _buildSection(
               text: str.editar_perfil,

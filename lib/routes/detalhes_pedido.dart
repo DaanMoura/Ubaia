@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ubaia/routes/perfil_usuario.dart';
 import 'package:ubaia/routes/perfil_vendedor.dart';
 import 'package:ubaia/routes/homepage.dart';
+import 'package:ubaia/routes/meus_pedidos.dart';
 import 'package:ubaia/values/strings.dart';
 
 final str = Strings();
@@ -29,6 +30,59 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
   void _abrePerfil(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => PerfilUsuario()));
+  }
+
+  void _abrirDialogo(bool success) {
+    String titulo;
+    String texto;
+    Icon icon;
+
+    if (success) {
+      titulo = "Pedido confirmado";
+      texto = "O seu pedido foi confirmado com sucesso!";
+      icon = Icon(
+        Icons.check,
+        color: Colors.green,
+        size: 80,
+      );
+    } else {
+      titulo = "Algo aconteceu :(";
+      texto = "Houve um erro no pedido. Tente novamente mais tarde";
+      icon = Icon(
+        Icons.error,
+        color: Colors.red,
+        size: 80,
+      );
+    }
+
+    showDialog<String>(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text(titulo),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: icon,
+                  ),
+                  Text(texto)
+                ],
+              ),
+              actions: <Widget>[
+                Center(
+                  child: FlatButton(
+                    child: Text("Ok!"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MeusPedidos())
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ));
   }
 
   List<DropdownMenuItem<String>> _makeDropdownList(List<String> list) {
@@ -170,13 +224,7 @@ class DetalhesPedidoState extends State<DetalhesPedido> {
                     ),
                     MaterialButton(
                       minWidth: 250,
-                      onPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          route,
-                          (route) => false,
-                        );
-                      },
+                      onPressed: () => _abrirDialogo(false),
                       color: Colors.green,
                       child: Text(
                         "Finalizar".toUpperCase(),
