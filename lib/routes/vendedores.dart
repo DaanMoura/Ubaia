@@ -48,7 +48,7 @@ class _VendedoresState extends State<Vendedores> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => PerfilVendedor(
-            title: str.perfil, vendedor: widget.vendedores[index], nota: widget.nota[index],))
+            title: str.perfil, vendedor: widget.vendedores[index], nota: widget.nota[index]))
         );
       },
     );

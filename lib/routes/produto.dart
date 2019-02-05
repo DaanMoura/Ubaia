@@ -10,6 +10,7 @@ class PaginaProduto extends StatefulWidget {
 
   final String title;
   final String itemTitle;
+  
 
   @override
   _PaginaProdutoState createState() => _PaginaProdutoState();
@@ -17,7 +18,7 @@ class PaginaProduto extends StatefulWidget {
 
 class _PaginaProdutoState extends State<PaginaProduto> {
   var _quantidade = 500;
-
+  
   void _diminuiQuantidade() {
     setState(() {
       if (_quantidade >= 100) _quantidade = _quantidade - 100;
@@ -33,92 +34,90 @@ class _PaginaProdutoState extends State<PaginaProduto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          backgroundColor: Colors.brown,
-        ),
-        backgroundColor: Colors.brown[200],
-        body: ListView(
-          children: <Widget>[
-            SizedBox(
-                height: 200,
-                child: Image.network(
-                  "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",
-                  fit: BoxFit.cover,
-                )),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Titulo(
-                  title: widget.itemTitle,
-                ),
+      appBar: AppBar(
+        title: Text(widget.title),
+        backgroundColor: Colors.brown,
+      ),
+      backgroundColor: Colors.brown[200],
+      body: ListView(
+        children: <Widget>[
+          SizedBox(
+              height: 200,
+              child: Image.network(
+                "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.i3YhhzW6KFlSKJELpyVK8gHaHY%26pid%3D15.1&f=1",
+                fit: BoxFit.cover,
+              )),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Titulo(
+                title: widget.itemTitle,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 40,
-                  width: 40,
-                  child: FloatingActionButton(
-                    heroTag: null,
-                    child: Icon(
-                      Icons.remove,
-                      size: 30,
-                    ),
-                    onPressed: _diminuiQuantidade,
-                    foregroundColor: Colors.white70,
-                    backgroundColor: Colors.brown,
-                    elevation: 4,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 40,
+                width: 40,
+                child: FloatingActionButton(
+                  heroTag: null,
+                  child: Icon(
+                    Icons.remove,
+                    size: 30,
                   ),
+                  onPressed: _diminuiQuantidade,
+                  foregroundColor: Colors.white70,
+                  backgroundColor: Colors.brown,
+                  elevation: 4,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 16.0),
-                  child: Text(
-                    "${_quantidade} g",
-                    style: TextStyle(fontSize: 30),
-                  ),
-                ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  child: FloatingActionButton(
-                    heroTag: null,
-                    child: Icon(
-                      Icons.add,
-                      size: 30,
-                    ),
-                    onPressed: _aumentaQuantidade,
-                    foregroundColor: Colors.white70,
-                    backgroundColor: Colors.brown,
-                    elevation: 4,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
-              child: Text("Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema "),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Cesta()),
-                  );
-                },
-                color: Colors.brown,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: Text(
-                  str.adicionar_cesta.toUpperCase(),
-                  style: TextStyle(color: Colors.white70),
+                  "${_quantidade} g",
+                  style: TextStyle(fontSize: 30),
                 ),
               ),
-            )
-          ],
-        ));
+              Container(
+                height: 40,
+                width: 40,
+                child: FloatingActionButton(
+                  heroTag: null,
+                  child: Icon(
+                    Icons.add,
+                    size: 30,
+                  ),
+                  onPressed: _aumentaQuantidade,
+                  foregroundColor: Colors.white70,
+                  backgroundColor: Colors.brown,
+                  elevation: 4,
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
+            child: Text(
+                "Uma variedade enorme de frutas fresquinhas à sua disposição. E sabe qual o segredo para ter as mais saborosas do pedaço? É porque aqui elas chegam do campo à loja em até 24 horas. Pode conferir, são tantas opções que você vai encontrar novos sabores a cada mordida.Fazenda Ipanema "),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
+            child: MaterialButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              color: Colors.brown,
+              child: Text(
+                str.adicionar_cesta.toUpperCase(),
+                style: TextStyle(color: Colors.white70),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

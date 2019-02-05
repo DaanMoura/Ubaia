@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ubaia/components/titulo.dart';
+import 'package:ubaia/routes/produto.dart';
 import 'package:ubaia/values/strings.dart';
+
 final str = Strings();
 
 class CompradosRecentemente extends StatefulWidget {
@@ -10,14 +12,26 @@ class CompradosRecentemente extends StatefulWidget {
 
 class _CompradosRecentementeState extends State<CompradosRecentemente> {
   Widget _buildProduct(String url, String nome) {
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(8),
-          child: Image.network(url, height: 100, width: 100, ),
-        ),
-        Text(nome)
-      ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PaginaProduto(title: "Cestou", itemTitle: nome,))
+        );
+      },
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: Image.network(
+              url,
+              height: 100,
+              width: 100,
+            ),
+          ),
+          Text(nome)
+        ],
+      ),
     );
   }
 
@@ -29,16 +43,16 @@ class _CompradosRecentementeState extends State<CompradosRecentemente> {
     "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.7ZawEqQ5Uw757l2Mv586iwHaHC%26pid%3D15.1&f=1"
   ];
 
-  List<String> nameList = [
-    "Banana", "Alface", "Tomate", "Leite", "Milho"
-  ];
+  List<String> nameList = ["Banana", "Alface", "Tomate", "Leite", "Milho"];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Titulo(title: str.comprados_recentemente,),
+        Titulo(
+          title: str.comprados_recentemente,
+        ),
         SizedBox(
           height: 140,
           child: ListView.builder(

@@ -4,6 +4,9 @@ import 'package:ubaia/components/titulo.dart';
 import 'package:ubaia/routes/produto.dart';
 import 'package:ubaia/routes/perfil_usuario.dart';
 import 'package:ubaia/values/strings.dart';
+import 'package:ubaia/routes/cesta.dart';
+import 'package:ubaia/components/bottom_button.dart';
+
 final str = Strings();
 
 class PerfilVendedor extends StatefulWidget {
@@ -157,7 +160,7 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 64),
               child: ListView.builder(
                   shrinkWrap: true, physics: ClampingScrollPhysics(),
                   itemCount: 3,
@@ -168,6 +171,18 @@ class _PerfilVendedorState extends State<PerfilVendedor> {
             ),
           ],
         ),
+        bottomSheet:BottomButton(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => Cesta()),
+          );
+        },
+        child: Text(
+          "Minha Cesta",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }
